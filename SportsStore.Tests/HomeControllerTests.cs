@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
@@ -23,7 +21,7 @@ namespace SportsStore.Tests
             HomeController controller = new HomeController(mock.Object);
 
             // Действия
-            ProductsListViewModel result = controller.Index().ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel result = controller.Index(null).ViewData.Model as ProductsListViewModel;
             Product[] prodArray = result.Products.ToArray();
 
             // Утверждения
@@ -49,7 +47,7 @@ namespace SportsStore.Tests
             controller.PageSize = 3;
 
             // Действие
-            ProductsListViewModel result = controller.Index(2).ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel result = controller.Index(null, 2).ViewData.Model as ProductsListViewModel;
 
             // Утверждение
             Product[] prodArray = result.Products.ToArray();
@@ -74,7 +72,7 @@ namespace SportsStore.Tests
             HomeController controller = new HomeController(mock.Object) { PageSize = 3 };
 
             // Действие
-            ProductsListViewModel result = controller.Index(2).ViewData.Model
+            ProductsListViewModel result = controller.Index(null, 2).ViewData.Model
                 as ProductsListViewModel;
             PagingInfo pageInfo = result.PagingInfo;
 
@@ -83,6 +81,32 @@ namespace SportsStore.Tests
             Assert.Equal(3, pageInfo.ItemsPerPage);
             Assert.Equal(5, pageInfo.TotalItems);
             Assert.Equal(2, pageInfo.TotalPages);
+        }
+
+        [Fact]
+        public void CanFilterProducts()
+        {
+            // Организация
+            Mock<IStoreRepository> mock = new Mock<IStoreRepository>();
+            mock.Setup(m => m.Products).Returns((new Product[]
+            {
+                new Product { ProductId = 1, Name = "P1", Category = "Cat1" },
+                new Product { ProductId = 2, Name = "P2", Category = "Cat2" },
+                new Product { ProductId = 3, Name = "P3", Category = "Cat1" },
+                new Product { ProductId = 4, Name = "P4", Category = "Cat2" },
+                new Product { ProductId = 5, Name = "P5", Category = "Cat3" }
+            }).AsQueryable);
+            HomeController controller = new HomeController(mock.Object);
+            controller.PageSize = 3;
+
+            // Действия
+            Product[] result = (controller.Index("Cat2", 1).ViewData.Model as ProductsListViewModel)
+                .Products.ToArray();
+
+            // Утверждения
+            Assert.Equal(2, result.Length);
+            Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
+            Assert.True(result[1].Name == "P4" && result[1].Category == "Cat2");
         }
     }
 }
