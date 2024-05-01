@@ -8532,23 +8532,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\slava\\.nuget\\packages\\": {},
+    "C:\\Users\\Vyacheslav\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\SportsSln\\SportsStore.Tests\\SportsStore.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Vyacheslav\\Desktop\\ASP.NET Core Book\\SportsSln\\SportsStore.Tests\\SportsStore.Tests.csproj",
       "projectName": "SportsStore.Tests",
-      "projectPath": "C:\\Projects\\SportsSln\\SportsStore.Tests\\SportsStore.Tests.csproj",
-      "packagesPath": "C:\\Users\\slava\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\SportsSln\\SportsStore.Tests\\obj\\",
+      "projectPath": "C:\\Users\\Vyacheslav\\Desktop\\ASP.NET Core Book\\SportsSln\\SportsStore.Tests\\SportsStore.Tests.csproj",
+      "packagesPath": "C:\\Users\\Vyacheslav\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vyacheslav\\Desktop\\ASP.NET Core Book\\SportsSln\\SportsStore.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\slava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vyacheslav\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8563,8 +8563,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Projects\\SportsSln\\SportsStore\\SportsStore.csproj": {
-              "projectPath": "C:\\Projects\\SportsSln\\SportsStore\\SportsStore.csproj"
+            "C:\\Users\\Vyacheslav\\Desktop\\ASP.NET Core Book\\SportsSln\\SportsStore\\SportsStore.csproj": {
+              "projectPath": "C:\\Users\\Vyacheslav\\Desktop\\ASP.NET Core Book\\SportsSln\\SportsStore\\SportsStore.csproj"
             }
           }
         }
@@ -8625,7 +8625,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
