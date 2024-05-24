@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using SportsStore.Models;
 
 namespace SportsStore
@@ -42,6 +43,15 @@ namespace SportsStore
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsProduction())
+            {
+                app.UseExceptionHandler("/error");
+            }
+            else
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStaticFiles();
+            }
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
